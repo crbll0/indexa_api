@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="indexa_api_fuels_list">
+            <field name="name">Fuels List</field>
+            <field name="model">indexa.api.fuels</field>
+            <field name="arch" type="xml">
+                <tree string="Fuel Configuration">
+                    <field name="product_id"/>
+                    <field name="fuel_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="indexa_api_fuels_form">
+            <field name="name">Conf Fuel</field>
+            <field name="model">indexa.api.fuels</field>
+            <field name="arch" type="xml">
+                <form string="Fuel Configuration">
+                    <sheet>
+
+                        <div class="oe_title">
+                            <label for="product_id" class="oe_edit_only"/>
+                            <h2>
+                                <field name="product_id"/>
+                                <field name="name" invisible="1"/>
+                            </h2>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="fuel_type"/>
+                                <field name="last_price"/>
+                            </group>
+                            <group>
+                                <field name="update_in"/>
+                                <field name="pricelist_id" attrs="{'invisible': [('update_in', '!=', 'pricelist')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="indexa_api_fuels_action_window">
+            <field name="name">Config. Fuels</field>
+            <field name="res_model">indexa.api.fuels</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!--<menuitem name="Conf. Fuels" id="menu_config"-->
+        <!--parent="sale.prod_config_main"/>-->
+
+        <menuitem name="Fuels Price"
+                  id="menu_config_fuel" parent="sale.menu_sale_config"
+                  action="indexa_api_fuels_action_window"/>
+    </data>
+</odoo>

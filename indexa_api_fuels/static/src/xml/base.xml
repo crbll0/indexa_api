@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+  <t t-name="IncomeTypeWidget">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="panel panel-default">
+          <table class="table">
+            <thead>
+              <th>Tipo Comprobante</th>
+              <th>Cantidad</th>
+              <th>Monto Facturado</th>
+            </thead>
+            <tbody>
+              <tr t-foreach="ncfs" t-as="line">
+                <td>
+                  <t t-esc="line.name"></t>
+                </td>
+                <td class="text-right">
+                  <t t-esc="line.count"></t>
+                </td>
+                <td class="text-right">
+                  <t t-esc="line.amount"></t>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <table class="table">
+          <thead class="">
+            <th>TIPO DE INGRESOS</th>
+            <th>CANTIDAD</th>
+          </thead>
+          <tr  t-foreach="lines" t-as="line">
+            <td t-esc="line.name"></td>
+            <td class="text-right" t-esc="line.count"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </t>
+
+    <t t-name="ExpenseTypeWidget">
+      <div class="row">
+      <div class="col-xs-12">
+        <div class="panel panel-default">
+          <table
+                  class="table">
+            <thead>
+              <th>Tipo de Gasto</th>
+                <th>Cantidad</th>
+                <th>Monto Facturado</th>
+            </thead>
+              <tbody>
+              <tr t-foreach="lines" t-as="line">
+                <td>
+                  <t t-esc="line.name"></t>
+                </td>
+                  <td class="text-right">
+                  <t t-esc="line.count"></t>
+                </td>
+                  <td class="text-right">
+                  <t t-esc="line.amount"></t>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+  </t>
+
+    <t t-name="AccountTaxtWidget">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="">
+          <h3>
+            <b>Ventas</b>
+          </h3>
+          <table class="table">
+            <thead>
+              <th>Cuenta</th>
+              <th>Monto</th>
+            </thead>
+            <tbody>
+              <tr t-foreach="sales" t-as="line">
+                <td >
+                  <t t-esc="line.account_name"></t>
+                </td>
+                <td class="text-right">
+                  <t t-esc="line.amount"></t>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="">
+          <h3>Compras</h3>
+          <table class="table" style="width:100%;">
+            <thead>
+              <th>cuenta</th>
+              <th>Monto</th>
+            </thead>
+            <tbody>
+              <tr t-foreach="purchases" t-as="line">
+                <td>
+                  <t t-esc="line.account_name"></t>
+                </td>
+                <td class="text-right">
+                  <t t-esc="line.amount"></t>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+        <div class="alert alert-warning" role="alert">
+        <strong><i class="fa fa-eye"></i>
+            Ojo!!</strong>
+            la informacion que esta viendo,
+            es una recopilacion de todos los apuntes contables en estado asentado/confirmado del periodo especificado.
+      </div>
+  </t>
+</templates>

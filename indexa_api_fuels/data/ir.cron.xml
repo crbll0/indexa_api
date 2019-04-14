@@ -1,0 +1,15 @@
+<odoo>
+    <data noupdate="1">
+        <!--  -->
+        <record id="indexa_api_fuel_cronjob" model="ir.cron">
+            <field name="name">Update Fuel Price - Indexa API</field>
+            <field name="model_id" ref="model_indexa_api_fuels"/>
+            <field name="state">code</field>
+            <field name="interval_number">7</field>
+            <field name="interval_type">days</field>
+            <field name="code">model.get_fuel_price()</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+    </data>
+</odoo>
